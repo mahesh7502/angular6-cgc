@@ -1,0 +1,15 @@
+.full-width-table {
+  width: 100%;
+}
+
+tr.mat-header-row {
+  height: 36px;
+}
+
+tr.mat-footer-row, tr.mat-row {
+  height: 35px;
+}
+
+.mat-cell, .mat-footer-cell {
+  font-size: 12px;
+}

@@ -1,0 +1,19 @@
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 40px;
+}
+
+.mat-toolbar.mat-primary {
+  background: rgb(233, 30, 99);
+  color: #fff;
+}
