@@ -1,15 +1,27 @@
-.full-width-table {
-  width: 100%;
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+.ngx-datatable.scroll-vertical {
+  height: 30vh;
 }
 
-tr.mat-header-row {
-  height: 36px;
+.ngx-datatable {
+  display: block;
+  overflow: hidden;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
 }
 
-tr.mat-footer-row, tr.mat-row {
-  height: 35px;
+.ngx-datatable, .info {
+  text-align: left;
 }
 
-.mat-cell, .mat-footer-cell {
-  font-size: 12px;
+.ngx-datatable.material {
+    text-align: left;
+    padding: .9rem 1.2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.54);
+    vertical-align: bottom;
+    font-size: 12px;
+    font-weight: 500;
 }

@@ -7,15 +7,45 @@ import { MyTableDataSource } from './my-table-datasource';
   templateUrl: './my-table.component.html',
   styleUrls: ['./my-table.component.css'],
 })
-export class MyTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  dataSource: MyTableDataSource;
+//export class MyTableComponent implements OnInit {
+  export class MyTableComponent {
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'sample', 'sample1', 'sample2'];
-
-  ngOnInit() {
-    this.dataSource = new MyTableDataSource(this.paginator, this.sort);
+    rows;
+    expanded = {};
+    timeout: any;
+  
+    constructor() {
+      this.fetch((data) => {
+        this.rows = data;
+      });
+    }
+  
+    onPage(event) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        console.log('paged!', event);
+      }, 100);
+    }
+  
+    fetch(cb) {
+      const req = new XMLHttpRequest();
+      req.open('GET', `/angular6-cgc/src/assets/100k.json`);
+  
+      req.onload = () => {
+        const rows = JSON.parse(req.response);
+  
+        for(const row of rows) {
+          row.height = Math.floor(Math.random() * 80) + 50;
+        }
+  
+        cb(rows);
+      };
+  
+      req.send();
+    }
+  
+    getRowHeight(row) {
+      return row.height;
+    }
+  
   }
-}
